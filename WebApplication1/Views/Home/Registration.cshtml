@@ -1,24 +1,68 @@
 ﻿
+@model WebApplication1.Models.UserInformation
 @{
-    ViewBag.Title = "Registration";
+    ViewBag.Title = "Registeration";
 }
 
 <h2>@ViewBag.Title</h2>
 
 
-<form action="http://localhost:49872/New/Result" target="_blank">
-    First name:<br>
-    <input type="text" name="firstname" value=""><br>
-    Last name:<br>
-    <input type="text" name="lastname" value=""><br>
-    Email:<br>
-    <input type="email" name="firstname" value=""><br>
-    Phone Number:<br>
-    <input type="number" name="lastname" value=""><br>
-    Pasword:<br>
-    <input type="password" name="lastname" value=""><br>
-    <br>
-    <input type="submit" value="Register">
 
-</form>
+
+@using (Html.BeginForm())
+{
+    <div class=" row">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.FirstName, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.FirstName, new { @class = "control-label" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.LastName, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.LastName, new { @class = "control-label" })
+            </div>
+            <div class=" form-group">
+                @Html.LabelFor(x => x.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Email, new { @class = "control-label" })
+            </div>
+            <div class=" form-group">
+                @Html.LabelFor(x => x.PhoneNumber, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "control-label" })
+            </div>
+            <div class=" form-group">
+
+                <div class=" form-group">
+                  Password @Html.Password("password", "", new { id = "password", Textmode = "Password" })
+                </div>
+
+
+                </div>
+            </div>
+        <div class="col-md-6">
+            <div class=" form-group">
+                @Html.LabelFor(x => x.Notes, new { @class = "control-label" })
+                @Html.TextAreaFor(x => x.Notes,10,30, new { @class = "control-label" })
+                
+            </div>
+            <div class="col-md-12">
+                <div class="pad-top">
+                    <button type="submit" class="btn btn-success btn-lg margin-right">
+                        <span class="glyphicon glyphicon-remove">submit</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+}
+
+
+
 
